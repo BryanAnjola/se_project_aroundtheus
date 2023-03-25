@@ -131,7 +131,8 @@ list-style: none;
     width: 318px;
     height: 18px;
     padding-top: 60px;
-    padding-left: 200px;
+    margin: 0;
+    padding-left: 195px;
     padding-bottom: 60px;
     font-family: "inter";
     font-weight: 400;
@@ -145,11 +146,12 @@ list-style: none;
 }
 @media screen and (max-width: 800px) {
     .page__section{
-        margin: 0 20px;
+       margin: 0 20px;
         max-width: calc(100% - 40px);
-    }
+    } 
     
-}
+    }
+
 @media screen and (max-width:480px) {
     .page__section{
         max-width: 480px;
@@ -173,6 +175,9 @@ list-style: none;
     .profile__add-button{
         margin: 0;
         width: 100%;
+
+    }
+    .footer{
 
     }
 
