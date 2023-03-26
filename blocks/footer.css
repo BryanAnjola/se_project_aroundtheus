@@ -9,6 +9,8 @@
     line-height: 1.21;
     font-style: normal;
     color:#545454;
+    display: flex;
+    justify-content: center;
 }
 
 @media screen and (max-width: 1280px) {

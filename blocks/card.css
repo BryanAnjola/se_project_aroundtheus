@@ -1,33 +1,27 @@
-.cards{
-    margin-top: 30px;
 
-    
-}
-.card__list{
+.cards__list{
 display: grid;
 justify-content: center;
 grid-template-columns: repeat(auto-fit, 282px);
 grid-gap: 20px 17px;
-padding: 0; 
+padding: 0;
 margin: 0;
 max-width: 880px;
-
 }
-.card{
+.cards{
     display: flex;
     flex-direction: column;
    border-radius: 10px;
 list-style: none;
+margin-top: 30px;
+} 
 
-
-}
-
-.card__image{
+.cards__image{
  width: 282px;
  height: 282px;
-
 }
-.card__description{
+
+.cards__description{
     display: flex;
     background-color: white;
     color:black;
@@ -37,7 +31,7 @@ list-style: none;
     
 
 }
-.card__title{
+.cards__title{
     max-width: 220px;
     font-size: 24px;
     font-weight: 900;
@@ -48,13 +42,13 @@ list-style: none;
     margin: 0;
 }
 
-.card__like-button{
+.cards__like-button{
     background: transparent url(../images/like-button.svg) center no-repeat;
     width: 21px;
     height: 18px;
     border: none;
 }
-.card__like-button:hover{
+.cards__like-button:hover{
     cursor: pointer;
     opacity: .7;
 }
