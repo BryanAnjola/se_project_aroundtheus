@@ -43,7 +43,7 @@
     font-weight: 400;
     grid-area: description;
     margin: 0;
-    font-family: "inter",Arial, Helvetica, sans-serif;
+    font-family: "inter";
 font-style: normal;
 
 }
@@ -54,6 +54,7 @@ font-style: normal;
     object-fit: cover;
     background-position: center;
     margin-right: 25px;
+    margin-bottom: 25px;
    
 }
 .profile__add-button:hover{
