@@ -30,6 +30,11 @@
     line-height: 48px;
     grid-area: title;
     margin: 0;
+    font-family: "inter";
+    font-style: normal;
+    font-weight: 500px;
+
+
 
 }
 .profile__description{
@@ -38,6 +43,8 @@
     font-weight: 400;
     grid-area: description;
     margin: 0;
+    font-family: "inter";
+font-style: normal;
 
 }
 .profile__image{

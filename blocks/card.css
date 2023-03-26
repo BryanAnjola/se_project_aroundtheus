@@ -40,6 +40,8 @@ margin-top: 30px;
     white-space: nowrap;
     overflow: hidden;
     margin: 0;
+    font-family: "inter";
+    font-style: normal;
 }
 
 .cards__like-button{
