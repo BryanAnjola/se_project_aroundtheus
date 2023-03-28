@@ -45,7 +45,6 @@ border-color: white;
 .profile__description {
   font-size: 18px;
   line-height: 1.21;
-  font-weight: 400;
   grid-area: description;
   margin: 0;
   padding-top: 16px;
