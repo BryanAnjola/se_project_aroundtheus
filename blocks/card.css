@@ -19,7 +19,6 @@
   width: 282px;
   height: 282px;
   border-radius: 10px 10px 0px 0px;
-
 }
 
 .cards__description {
@@ -40,7 +39,7 @@
   white-space: nowrap;
   overflow: hidden;
   margin: 0;
-  font-family:'Inter';
+  font-family: "Inter";
 }
 
 .cards__like-button {
