@@ -1,57 +1,56 @@
-
-.cards__list{
-display: grid;
-justify-content: center;
-grid-template-columns: repeat(auto-fit, 282px);
-grid-gap: 20px 17px;
-padding: 0;
-margin: 0;
-max-width: 880px;
+.cards__list {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fit, 282px);
+  grid-gap: 20px 17px;
+  padding: 0;
+  margin: 0;
+  max-width: 880px;
 }
-.cards{
-    display: flex;
-    flex-direction: column;
-   border-radius: 10px;
-list-style: none;
-margin-top: 30px;
-} 
-
-.cards__image{
- width: 282px;
- height: 282px;
+.cards {
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  list-style: none;
+  margin-top: 30px;
 }
 
-.cards__description{
-    display: flex;
-    background-color: white;
-    color:black;
-    padding: 25px 15px 31px 21px;
-    align-items: center;
-    justify-content: space-between;
-    
-
-}
-.cards__title{
-    max-width: 220px;
-    font-size: 24px;
-    font-weight: 900;
-    line-height: 29px;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-    margin: 0;
-    font-family: "Inter-Black";
+.cards__image {
+  width: 282px;
+  height: 282px;
+  border-radius: 10px 10px 0px 0px;
 
 }
 
-
-.cards__like-button{
-    background: transparent url(../images/like-button.svg) center no-repeat;
-    width: 21px;
-    height: 18px;
-    border: none;
+.cards__description {
+  display: flex;
+  background-color: white;
+  color: black;
+  padding: 25px 15px 31px 21px;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 0px 0px 15px 15px;
 }
-.cards__like-button:hover{
-    cursor: pointer;
-    opacity: .7;
+.cards__title {
+  max-width: 220px;
+  font-size: 24px;
+  font-weight: 900;
+  line-height: 29px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  margin: 0;
+  font-family:'Inter';
+  font-weight: 900;
+}
+
+.cards__like-button {
+  background: transparent url(../images/like-button.svg) center no-repeat;
+  width: 21px;
+  height: 18px;
+  border: none;
+}
+.cards__like-button:hover {
+  cursor: pointer;
+  opacity: 50%;
 }
