@@ -71,7 +71,10 @@ border-color: white;
   opacity: 50%;
 }
 @media screen and (max-width: 1280px) {
+.profile__edit-button{
+    margin-top: 15px;
 
+}
 }
 
 @media screen and (max-width: 480px) {
@@ -106,6 +109,7 @@ text-align: center;
     width: 18px;
     height: 18px;
     margin-left: 18px;
+    margin-top: 5px;
   }
 }
 
@@ -138,5 +142,6 @@ text-align: center;
   .profile__edit-button {
     width: 18px;
     height: 18px;
+    margin-top: 5px;
   }
 }
