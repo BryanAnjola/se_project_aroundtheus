@@ -1,4 +1,10 @@
 .header {
   margin-top: 45px;
-  border-bottom: 10px;
+  border-bottom: 1px white;
+}
+.header::before{
+  border-bottom: 1px solid white;
+}
+.header__image{
+  margin-bottom: 41px;
 }

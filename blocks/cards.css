@@ -7,18 +7,20 @@
   margin: 0;
   max-width: 880px;
 }
-.cards {
+.card {
   display: flex;
   flex-direction: column;
   border-radius: 10px;
   list-style: none;
-  margin-top: 30px;
+ 
 }
 
 .cards__image {
   width: 282px;
   height: 282px;
-  border-radius: 10px 10px 0px 0px;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+
 }
 
 .cards__description {
@@ -28,7 +30,7 @@
   padding: 25px 15px 31px 21px;
   align-items: center;
   justify-content: space-between;
-  border-radius: 0px 0px 15px 15px;
+  border-radius: 10px;
 }
 .cards__title {
   max-width: 220px;
@@ -39,7 +41,7 @@
   white-space: nowrap;
   overflow: hidden;
   margin: 0;
-  font-family: "Inter";
+  font-family: "Inter", sans-serif;
 }
 
 .cards__like-button {
