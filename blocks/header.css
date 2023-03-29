@@ -1,10 +1,13 @@
 .header {
   margin-top: 45px;
-  border-bottom: 1px white;
-}
-.header::before{
   border-bottom: 1px solid white;
 }
-.header__image{
-  margin-bottom: 41px;
+.header__image {
+  padding-bottom: 41px;
+}
+@media screen and (max-width: 320px) {
+  .header__image {
+    width: 126px;
+    height: 24px;
+  }
 }

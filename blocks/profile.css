@@ -1,7 +1,7 @@
 .profile {
   display: flex;
   align-items: center;
-  padding-top: 40px;
+  padding-top: 36.25px;
 }
 .profile__info {
   display: grid;
@@ -68,6 +68,9 @@
   opacity: 0.5;
 }
 @media screen and (max-width: 1500px) {
+  .profile {
+    padding-bottom: 51px;
+  }
   .profile__edit-button {
     margin-top: 15px;
   }
@@ -101,10 +104,15 @@
     line-height: 1.2;
     font-size: 22px;
   }
+  .profile__image {
+    margin-left: 59.5px;
+    margin-right: 53.5px;
+  }
   .profile__info {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    width: 100%;
   }
   .profile__description {
     padding-top: 14px;
@@ -141,8 +149,8 @@
     height: 50px;
   }
 
-  .profile__image {
-    margin-left: 59.5px;
-    margin-right: 53.5px;
+  .profile {
+    padding-top: 38.25px;
+    padding-bottom: 0;
   }
 }
