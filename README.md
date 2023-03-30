@@ -23,4 +23,4 @@ worked a lot with grid and media querys and learned how to use them to affective
 <img src="./images/yosemite-valley.jpg">
 
 link 9
-[link to my github](https://github.com/BryanAnjola/se_project_aroundtheus.git)
+[link to my github pages](https://bryananjola.github.io/se_project_aroundtheus/)
