@@ -41,7 +41,7 @@
   white-space: nowrap;
   overflow: visible;
   height: 39px;
-  padding-top: 14px;
+ 
 }
 .profile__description {
   font-size: 18px;
@@ -75,7 +75,7 @@
     margin-bottom: 50px;
   }
   .profile__edit-button {
-    margin-top: 30px;
+    margin-top: 15px;
   }
   .profile__image {
     margin-right: 15px;
@@ -85,7 +85,7 @@
     padding-top: 16px;
   }
   .profile__add-button {
-    margin-top: 20px;
+    margin-top: 5px;
   }
 }
 
