@@ -8,6 +8,9 @@
   margin-top: 0;
   margin-bottom: 0;
 }
+.footer__text{
+  margin: 0;
+}
 
 @media screen and (min-width: 1024px) {
   .footer {

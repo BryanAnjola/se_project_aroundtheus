@@ -39,7 +39,7 @@
   width: 373px;
   text-overflow: ellipsis;
   white-space: nowrap;
-  overflow: visible;
+  overflow: hidden;
   padding-top: 22px;
 }
 .profile__description {
@@ -52,7 +52,7 @@
   width: 415px;
   text-overflow: ellipsis;
   white-space: nowrap;
-  overflow: visible;
+  overflow: hidden;
 }
 .profile__image {
   height: 120px;
@@ -142,7 +142,7 @@
   }
   .profile__description {
     width: 100%;
-    padding: 0;
+    padding: 14px 0 36px;
   }
   .profile__edit-button {
     margin-top: 5px;
