@@ -131,7 +131,7 @@
     height: 18px;
     margin-left: 18px;
     margin-top: 27px;
-    border: 1px solid #ffffff ;
+    border: 1px solid #ffffff;
   }
 }
 
@@ -143,16 +143,11 @@
   .profile__description {
     width: 100%;
     padding: 0;
-    padding-bottom: 36px;
-    padding-top: 14px;
-  }
-  .profile {
-    padding-bottom: 0;
   }
   .profile__edit-button {
     margin-top: 5px;
   }
-.profile__image{
-  margin-bottom: 26.25px;
-}
+  .profile__image {
+    margin-bottom: 26.25px;
+  }
 }
