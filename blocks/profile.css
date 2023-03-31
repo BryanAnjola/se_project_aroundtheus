@@ -9,7 +9,6 @@
     "description description";
   grid-template-columns: minmax(auto, 373px) auto;
   width: 415px;
-  height: 77px;
 }
 .profile__edit-button {
   background: transparent url(../images/Edit\ Button.svg) center no-repeat;
@@ -27,6 +26,7 @@
   margin-left: auto;
   border-color: white;
   border: 2px solid #ffffff;
+  border-radius: 2px;
 }
 .profile__title {
   line-height: 48px;
@@ -40,7 +40,6 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: visible;
-  height: 39px;
   padding-top: 22px;
 }
 .profile__description {
@@ -79,7 +78,6 @@
   }
   .profile__image {
     margin-right: 15px;
-    margin-bottom: 26.25px;
   }
   .profile__description {
     padding-top: 16px;
@@ -132,7 +130,8 @@
     width: 18px;
     height: 18px;
     margin-left: 18px;
-    margin-top: 20px;
+    margin-top: 27px;
+    border: 1px solid #ffffff ;
   }
 }
 
@@ -144,7 +143,8 @@
   .profile__description {
     width: 100%;
     padding: 0;
-    height: 14px;
+    padding-bottom: 36px;
+    padding-top: 14px;
   }
   .profile {
     padding-bottom: 0;
@@ -152,4 +152,7 @@
   .profile__edit-button {
     margin-top: 5px;
   }
+.profile__image{
+  margin-bottom: 26.25px;
+}
 }
