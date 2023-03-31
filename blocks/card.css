@@ -4,14 +4,12 @@
   border-radius: 10px;
   list-style: none;
 }
-
 .card__image {
   width: 282px;
   height: 282px;
   border-top-right-radius: 10px;
   border-top-left-radius: 10px;
 }
-
 .card__description {
   display: flex;
   background-color: white;
@@ -33,7 +31,6 @@
   margin: 0;
   font-family: "Inter", sans-serif;
 }
-
 .card__like-button {
   background: transparent url(../images/like-button.svg) center no-repeat;
   width: 21px;
