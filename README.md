@@ -5,6 +5,7 @@ Project 3: Around The U.S.
 - Intro
 - Figma
 - Images
+  -Now using java script to add arrarys and to help loadedn the html.
 
 **Intro**
 
