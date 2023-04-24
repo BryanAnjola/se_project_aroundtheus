@@ -100,6 +100,7 @@
 }
 .modal__button {
   height: 50.15px;
+  width: 100%;
   background-color: rgba(0, 0, 0, 1);
   color: #ffffff;
   border-radius: 2px;
@@ -141,10 +142,9 @@
     margin-bottom: 58px;
     font-size: 18px;
     line-height: 22px;
-    display: inline-block;
+    width: auto;
   }
   .modal__button {
-    max-width: 238px;
     font-family: "Inter", Arial, sans-serif;
     font-style: normal;
     font-weight: 400;
