@@ -41,7 +41,7 @@ const imageModal = document.querySelector('#image-modal');
 const modalImageElement = document.querySelector('.modal__image');
 const modalCaptionElement = document.querySelector('.modal__caption');
 
-const closeModalButton = document.querySelector('#modal-close');
+const closeModalButton = document.querySelector('#profile-modal-close');
 const closeCardModalButton = cardModal.querySelector('#card-modal-close');
 const closeImageModalButton = imageModal.querySelector('#image-modal-close');
 const profileTitle = document.querySelector('#profile-title');
@@ -101,7 +101,6 @@ function getCardElement(cardData) {
 
 
     cardImageElement.addEventListener('click', (event) => {
-        event.preventDefault();
         openModal(imageModal);
         modalCaptionElement.textContent = cardData.name;
         modalImageElement.src = cardData.link;

@@ -81,6 +81,7 @@
 }
 .modal__form {
   display: flex;
+  width: 358px;
   flex-direction: column;
   row-gap: 30px;
 }
@@ -97,7 +98,6 @@
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
 .modal__button {
-  width: 358px;
   height: 50.15px;
   background-color: rgba(0, 0, 0, 1);
   color: #ffffff;
@@ -142,6 +142,7 @@
     line-height: 22px;
   }
   .modal__button {
+    width: 100%;
     max-width: 238px;
     font-family: "Inter", Arial, sans-serif;
     font-style: normal;

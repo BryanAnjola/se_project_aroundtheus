@@ -47,7 +47,7 @@
     </div>
     <div class="modal" id="profile-modal">
       <div class="modal__container">
-        <button type="button" class="modal__close" id="modal-close"></button>
+        <button type="button" class="modal__close" id="profile-modal-close"></button>
         <h3 class="modal__title">Edit profile</h3>
         <form name="modalForm" action="#" class="modal__form">
           <input
@@ -88,17 +88,17 @@
             name="title"
             class="modal__input"
             id="modal-title-input"
-            value=""
             placeholder="Title"
           />
 
           <input
-            type="text"
-            name="url"
+            type="url"
+            name="text"
             class="modal__input"
             id="modal-url-input"
             value=""
             placeholder="Image URL"
+            required
           />
           <button
             class="modal__button"
@@ -141,6 +141,6 @@
         </div>
       </li>
     </template>
-    <script src="scripts/index.js"></script>
+    <script defer src="scripts/index.js" defer></script>
   </body>
 </html>
