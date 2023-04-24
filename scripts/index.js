@@ -34,7 +34,7 @@ const initialCards = [
 const profileEditButton = document.querySelector('#profile-edit-button');
 const cardAddButton = document.querySelector('#profile-add-button');
 
-// Modala
+
 const profileModal = document.querySelector('#profile-modal');
 const cardModal = document.querySelector('#card-modal');
 const imageModal = document.querySelector('#image-modal');
@@ -56,7 +56,7 @@ const cardTemplate = document.querySelector('#card-template').content.firstEleme
 
 
 
-// forms
+
 const modalProfileForm = profileModal.querySelector('.modal__form');
 const modalCardForm = cardModal.querySelector('.modal__form');
 
