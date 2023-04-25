@@ -138,6 +138,9 @@
   .image__modal {
     padding: 0 20px;
   }
+  .modal__form{
+    width: 238px;
+  }
   .modal__title {
     margin-bottom: 58px;
     font-size: 18px;
