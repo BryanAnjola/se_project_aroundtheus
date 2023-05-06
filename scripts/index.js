@@ -61,25 +61,8 @@ const modalProfileForm = profileModal.querySelector('.modal__form');
 const modalCardForm = cardModal.querySelector('.modal__form');
 
 
-// -------------------------- event handlers --------------------------------
-function handleProfileFormSubmit(evt) {
-    evt.preventDefault();
-    profileTitle.textContent = modalNameInput.value;
-    profileDescription.textContent = modalDescriptionInput.value;
-    closeModal(profileModal);
-}
 
-function handleNewCardFormSubmit(evt) {
-    evt.preventDefault();
-    const name = newCardTitle.value;
-    const link = newCardUrl.value;
-    renderCard({ name, link }, cardListElement);
-    modalCardForm.reset();
-    closeModal(cardModal);
-}
-
-
-
+  
 // -------------------------- functoins --------------------------------
 function getCardElement(cardData) {
     const cardElement = cardTemplate.cloneNode(true);
@@ -113,18 +96,57 @@ function getCardElement(cardData) {
 
 function closeModal(modal) {
     modal.classList.remove('modal_opened');
+    document.removeEventListener("keydown", closeModalWithEsc);
 }
 
 function openModal(modal) {
     modal.classList.add('modal_opened');
+    document.addEventListener("keydown", closeModalWithEsc);
 
 }
+const addClickOutPopupListener = (modal) => {
+    modal.addEventListener("mousedown", function (e) {
+      if (e.target === e.currentTarget) {
+        closeModal(modal);
+      }
+    });
+  };
+
+addClickOutPopupListener(profileModal);
+
+addClickOutPopupListener(cardModal);
+
+addClickOutPopupListener(imageModal);
 
 function renderCard(cardData, list) {
     const cardElement = getCardElement(cardData);
     list.prepend(cardElement);
 
 }
+// -------------------------- event handlers --------------------------------
+function handleProfileFormSubmit(evt) {
+    evt.preventDefault();
+    profileTitle.textContent = modalNameInput.value;
+    profileDescription.textContent = modalDescriptionInput.value;
+    closeModal(profileModal);
+}
+
+function handleNewCardFormSubmit(evt) {
+    evt.preventDefault();
+    const name = newCardTitle.value;
+    const link = newCardUrl.value;
+    renderCard({ name, link }, cardListElement);
+    modalCardForm.reset();
+    closeModal(cardModal);
+}
+
+const closeModalWithEsc = (e) => {
+    if (e.key === "Escape") {
+      const activeModal = document.querySelector(".modal_opened");
+      closeModal(activeModal);
+    }
+  };
+
 
 
 // -------------------------- Event listeners --------------------------------
