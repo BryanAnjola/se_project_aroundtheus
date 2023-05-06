@@ -138,6 +138,7 @@ function handleNewCardFormSubmit(evt) {
     renderCard({ name, link }, cardListElement);
     modalCardForm.reset();
     closeModal(cardModal);
+    toggleButtonState(inputEls, submitButton, config);
 }
 
 const closeModalWithEsc = (e) => {

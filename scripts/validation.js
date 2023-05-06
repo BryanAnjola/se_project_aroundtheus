@@ -47,7 +47,8 @@ submitButton.classList.remove(inactiveButtonClass);
 function setEventListeners(formEl, config){
  const {inputSelector, inactiveButtonClass} = config
      const inputList = [...formEl.querySelectorAll(inputSelector)];
-     const  submitButton = formEl.querySelector('.modal__button')
+     const  submitButton = formEl.querySelector(config.submitButtonSelector); 
+     toggleButtonState(inputList, submitButton, inactiveButtonClass)
     inputList.forEach(inputEL => {
         inputEL.addEventListener('input', (e) => {
     checkInputValidity(formEl, inputEL, config);
@@ -67,27 +68,6 @@ formEl.addEventListener("submit", (e) => {
 });
 
 setEventListeners(formEl, config);
-// look for all inputs inside of form
-
-//loop through all the inputs to see if all are valid
-
-//if input is not valid 
-
-//get validation message
-
-//add error class to input
-
-//show display error message
-
-// butttons disable button
-
-//if all inputs are valid
-
-//enable buttton
-
-//reset error message
-
-
 });
 }
 
