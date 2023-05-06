@@ -49,7 +49,7 @@
       <div class="modal__container">
         <button type="button" class="modal__close" id="profile-modal-close"></button>
         <h3 class="modal__title">Edit profile</h3>
-        <form name="modalForm" action="#" class="modal__form">
+        <form name="edit-profile-form" action="#" class="modal__form">
           <input
             type="text"
             name="title"
@@ -57,8 +57,11 @@
             id="modal-name"
             value=""
             placeholder="Name"
+            maxlength="40"
+            minlength="2"
+            required
           />
-
+<span class="modal__error" id="modal-name-error">  </span>
           <input
             type="text"
             name="description"
@@ -66,7 +69,11 @@
             id="modal-description"
             value=""
             placeholder="Description"
+            maxlength="200"
+            minlength="2"
+            required
           />
+          <span class="modal__error" id="modal-description-error">  </span>
           <button class="modal__button" id="modal-submit-button" type="submit">
             Save
           </button>
@@ -82,15 +89,18 @@
           id="card-modal-close"
         ></button>
         <h3 class="modal__title">New Place</h3>
-        <form name="modalForm" action="#" class="modal__form">
+        <form name="new-card-form" action="#" class="modal__form">
           <input
             type="text"
             name="title"
             class="modal__input"
             id="modal-title-input"
             placeholder="Title"
+            maxlength="30"
+            minlength="1"
+            required
           />
-
+          <span class="modal__error" id="modal-input-type-error">  </span>
           <input
             type="url"
             name="text"
@@ -100,6 +110,7 @@
             placeholder="Image URL"
             required
           />
+          <span class="modal__error" id="modal-url-input-error">  </span>
           <button
             class="modal__button"
             id="card-modal-submit-button"
@@ -141,6 +152,7 @@
         </div>
       </li>
     </template>
-    <script src="scripts/index.js" defer></script>
+    <script defer src="scripts/index.js"></script>
+    <script defer src="scripts/validation.js" ></script>
   </body>
 </html>
