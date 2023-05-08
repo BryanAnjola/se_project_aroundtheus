@@ -141,11 +141,10 @@
 }
 .modal__button:hover:not(:disabled) {
   opacity: 0.8;
-  cursor: default;
 }
 @media screen and (max-width: 627px) {
   .modal {
-    align-items: flex-start;
+  align-items: flex-start;
   }
   .modal__container {
     padding: 25px 22px;
