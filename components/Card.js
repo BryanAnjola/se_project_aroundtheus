@@ -1,4 +1,4 @@
-import { openPopup, closePopup, clickDeleteButton } from "../utils/utils.js";
+import { openPopup, closePopup } from "../utils/utils.js";
 
 export default class Card {
   constructor(cardData, templateSelector) {
@@ -11,23 +11,36 @@ export default class Card {
     return cardTemplate;
   }
 
-  _setEventListener(cardElement, cardData) {
-    const likeButton = cardElement.querySelector(".card__like-button");
-    likeButton.addEventListener("click", (e) => {
-      likeButton.classList.toggle("card__like-button-active");
+_toggleLike = () => {
+  this._likeButton.classList.toggle("card__like-button-active");
+}
+_handleDeleteButton = () => {
+  this._deleteButton = document.querySelector(".card__delete");
+}
+_handleOpenModal = () => {
+  this._cardOpenModal = document.querySelector("#card-open-modal");
+}
+  _setEventListeners(cardElement, cardData) {
+    this._likeButton = cardElement.querySelector(".card__like-button");
+    this._likeButton.addEventListener("click", (e) => {
+    this._toggleLike();
     });
+      this._handleDeleteButton();
+    ;
 
-    const deleteButton = cardElement.querySelector(".card__delete");
-    deleteButton.addEventListener("click", clickDeleteButton);
+   this._cardImageEl = cardElement.querySelector(".card__image");
 
-    const cardImageEl = cardElement.querySelector(".card__image");
-    const cardOpenModal = document.querySelector("#card-open-modal");
-    cardImageEl.addEventListener("click", (e) => {
-      openPopup(cardOpenModal);
-      const modalText = cardOpenModal.querySelector(".modal__text");
+   this._cardImageEl.addEventListener("click", (e) => {
+      openPopup(_handleOpenModal());
+
+      this._modalText = cardOpenModal.querySelector(".modal__text");
+
       modalText.innerText = cardData.name;
-      const cardImage = cardOpenModal.querySelector(".modal__image");
+
+      this._cardImage = cardOpenModal.querySelector(".modal__image");
+
       cardImage.src = cardData.link;
+
       cardImage.alt = cardData.name;
     });
   }
@@ -39,7 +52,8 @@ export default class Card {
     const cardImageEl = cardElement.querySelector(".card__image");
     cardImageEl.src = cardData.link;
     cardImageEl.alt = cardData.name;
-    this._setEventListener(cardElement, cardData);
+    this._setEventListeners(cardElement, cardData);
+    this._element = cardElement;
     return cardElement;
   }
 }
