@@ -1,8 +1,8 @@
 import Card from "../components/Card.js";
 import FormValidator from "../components/FormValidator.js";
 import {
-  openPopup,
-  closePopup,
+  openModal,
+  closeModal,
   closeModalOnRemoteClick,
 } from "../utils/utils.js";
 
@@ -98,12 +98,12 @@ addEditForm.addEventListener("submit", (e) => {
 
 const createCard = (cardData) => {
   const card = new Card(cardData, "#card-template"); // it receives cardData, right?
-  return card.createCardElement(cardData); // why here we provide cardData again?
+  return card.createCardElement();
 }
 
 initialCards.forEach((cardData) => {
-  const cardListEl = createCard(cardData); 
-  cardListEl.append(cardData); /// was cardElement but i changed to cardData to fix a error 
+  const card = createCard(cardData); 
+  cardListEl.append(card); /// was cardElement but i changed to cardData to fix a error 
 });
 
 profileEditModal.addEventListener("mousedown", closeModalOnRemoteClick)

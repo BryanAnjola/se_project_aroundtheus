@@ -1,10 +1,10 @@
-export function openPopup(popup) {
-    popup.classList.add("modal_opened");
+export function openModal(modal) {
+    modal.classList.add("modal_opened");
     document.addEventListener("keydown", handleEscapePress);
   }
   
-  export function closePopup(popup) {
-    popup.classList.remove("modal_opened");
+  export function closeModal(modal) {
+    modal.classList.remove("modal_opened");
     document.removeEventListener("keydown", handleEscapePress);
   }
   
@@ -21,6 +21,6 @@ export function openPopup(popup) {
       evt.target === evt.currentTarget ||
       evt.target.classList.contains("modal__close")
     ) {
-      closePopup(evt.currentTarget);
+      closeModal(evt.currentTarget);
     }
   }
