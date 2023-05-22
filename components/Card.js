@@ -1,4 +1,13 @@
-import { openModal, closeModal } from "../utils/utils.js";
+import {
+  openModal,
+  closeModal,
+  closeModalOnRemoteClick,
+} from "../utils/utils.js";
+import {
+  cardOpenModal,
+  modalCaptionElement,
+  modalImageElement,
+} from "../pages/index.js";
 
 export default class Card {
   constructor(cardData, templateSelector) {
@@ -7,54 +16,73 @@ export default class Card {
     this._name = cardData.name;
     this._templateSelector = templateSelector;
   }
-  _getTemplate() {
-    const cardTemplate = document.querySelector(this._templateSelector).content
-      .firstElementChild;
-    return cardTemplate;
-  }
-
-  _toggleLike = () => {
-    this._likeButton.classList.toggle("card__like-button-active");
-  };
-  _handleDeleteButton = () => {
-    this._deleteButton = document.querySelector(".card__delete");
-  };
-  _handleOpenModal = () => {
-    this._cardOpenModal = document.querySelector("#card-open-modal");
-  };
-  _handlePreviewimage(e) {
-    e.preventDefault();
-    openModal(imageModal);
-    modalText.innerText = cardData.name;
-    cardImage.src = cardData.link;
-    cardImage.alt = cardData.name;
-    imageModal = document.querySelector("#card-open-modal");
-  }
   _setEventListeners() {
     this._likeButton = this._cardElement.querySelector(".card__like-button");
-    this._likeButton.addEventListener("click", (e) => {
-      this._toggleLike();
-    });
-    this._handleDeleteButton();
-    this._cardImageEl = this._cardElement.querySelector(".card__image");
+    this._deleteButton = this._cardElement.querySelector(".card__delete");
 
-    this._cardImageEl.addEventListener("click", (e) => {
-      openModal();
+    this._likeButton.addEventListener("click", () => this._toggleLike());
+    this._deleteButton.addEventListener("click", () =>
+      this._handleDeleteButton()
+    );
 
-      this._modalText = cardOpenModal.querySelector(".modal__text");
-      this._cardImage = cardOpenModal.querySelector(".modal__image");
-    });
+    this._cardImageEl.addEventListener("click", (e) =>
+      this._handlePreviewImage(e)
+    );
+
+    this._cardImageEl.addEventListener("click", (e) =>this._openModalImage()
+    );
+
+    this._closeModalImage();
+  }
+
+  _openModalImage() {
+    this._cardElement.classList.add(".modal_opened");
+    document.addEventListener("keydown", closeModalOnRemoteClick);
+  }
+  _closeModalImage() {
+    this._cardElement.classList.remove(".modal_opened");
+    document.addEventListener("keydown", closeModalOnRemoteClick);
+  }
+  _toggleLike = () => {
+    this._cardElement
+      .querySelector("card__like-button")
+      .classList.toggle("card__like-button-active");
+  };
+
+  _handleDeleteButton = () => {
+    closeModal();
+  };
+  _handlePreviewImage(e) {
+    e.preventDefault();
+    openModal(cardOpenModal);
+    modalCaptionElement.textContent = this._name;
+    modalImageElement.src = this._link;
+    modalImageElement.alt = this._name;
+  }
+
+  _getTemplate() {
+    return document
+      .querySelector(this._templateSelector)
+      .content.querySelector(".card")
+      .cloneNode(true);
   }
 
   createCardElement() {
     this._cardElement = this._getTemplate().cloneNode(true);
-    const cardImageEl = this._cardElement.querySelector(".card__image");
-    const cardTitleEl = this._cardElement.querySelector(".card__title");
-    cardTitleEl.textContent = this._name;
-    cardImageEl.src = this._link;
-    cardImageEl.alt = this._name;
+    this._cardImageEl = this._cardElement.querySelector(".card__image");
+
+    this._cardTitleEl = this._cardElement.querySelector(".card__title");
+
+    this._cardTitleEl.textContent = this._name;
+
+    this._cardImageEl.src = this._link;
+
+    this._cardImageEl.alt = this._name;
+
     this._setEventListeners();
+
     this._element = this._cardElement;
+
     return this._cardElement;
   }
 }

@@ -48,6 +48,8 @@ const addProfileUrl = document.querySelector("#add-url-input");
 const addNewCardButton = document.querySelector(".profile__add-button");
 const profileAddModal = document.querySelector("#profile-add-modal");
 const cardOpenModal = document.querySelector("#card-open-modal");
+const modalImageElement = document.querySelector(".modal__image");
+const modalCaptionElement = document.querySelector(".modal__text");
 const addCardSubmitButton = profileAddModal.querySelector(
   ".form__popup-button"
 );
@@ -61,7 +63,8 @@ const cardListEl = document.querySelector(".gallery__cards");
 
 const addEditForm = profileAddModal.querySelector("#add-edit-form");
 
-profileEditButton.addEventListener("click", () => {   // confused about this one
+profileEditButton.addEventListener("click", () => {
+  // confused about this one
   profileNameInput.value = profileTitle.textContent;
   profileDescriptionInput.value = profileDescription.textContent;
   openPopup(profileEditModal);
@@ -91,7 +94,7 @@ addEditForm.addEventListener("submit", (e) => {
     link: newLink,
   };
 
-  const cardListEl = createCard(cardData); 
+  const cardListEl = createCard(cardData);
   cardListEl.prepend(cardElement);
   closePopup(profileAddModal);
 });
@@ -99,16 +102,16 @@ addEditForm.addEventListener("submit", (e) => {
 const createCard = (cardData) => {
   const card = new Card(cardData, "#card-template"); // it receives cardData, right?
   return card.createCardElement();
-}
+};
 
 initialCards.forEach((cardData) => {
-  const card = createCard(cardData); 
-  cardListEl.append(card); /// was cardElement but i changed to cardData to fix a error 
+  const card = createCard(cardData);
+  cardListEl.append(card); /// was cardElement but i changed to cardData to fix a error
 });
 
-profileEditModal.addEventListener("mousedown", closeModalOnRemoteClick)
-profileAddModal.addEventListener("mousedown", closeModalOnRemoteClick)
-cardOpenModal.addEventListener("mousedown", closeModalOnRemoteClick)
+profileEditModal.addEventListener("mousedown", closeModalOnRemoteClick);
+profileAddModal.addEventListener("mousedown", closeModalOnRemoteClick);
+cardOpenModal.addEventListener("mousedown", closeModalOnRemoteClick);
 
 const settings = {
   formSelector: ".modal__form",
@@ -119,6 +122,4 @@ const settings = {
 };
 const editProfileFormValidator = new FormValidator(settings, profileEditForm);
 const addCardFormValidator = new FormValidator(settings, addEditForm); // changed FormElement to addEditForm bc it had the add form id
-addCardFormValidator.disableSubmitButton();
-editProfileFormValidator.disableSubmitButton();
-
+export { cardOpenModal, modalCaptionElement, modalImageElement };
