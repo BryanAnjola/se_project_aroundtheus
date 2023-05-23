@@ -1,8 +1,4 @@
-import {
-  openModal,
-  closeModal,
-  closeModalOnRemoteClick,
-} from "../utils/utils.js";
+import { openModal, closeModal } from "../utils/utils.js";
 import {
   cardOpenModal,
   modalCaptionElement,
@@ -28,22 +24,8 @@ export default class Card {
     this._cardImageEl.addEventListener("click", (e) =>
       this._handlePreviewImage(e)
     );
-
-    this._cardImageEl.addEventListener("click", (e) => this._openModalImage());
-
-    this._closeModalImage();
   }
 
-  _openModalImage() {
-  //  this._cardElement.classList.add(".modal_opened");
-    //document.addEventListener("keydown", closeModalOnRemoteClick);
-    openModal(cardOpenModal)
-  }
-  _closeModalImage() {
-  //  this._cardElement.classList.remove(".modal_opened");
-    //document.addEventListener("keydown", closeModalOnRemoteClick);
-closeModal(cardOpenModal)
-  }
   _toggleLike = () => {
     this._element
       .querySelector(".card__like-button")
@@ -51,7 +33,7 @@ closeModal(cardOpenModal)
   };
 
   _handleDeleteButton = () => {
-    this._element.remove(".card");
+    this._element.remove();
     this._element = null;
   };
 
