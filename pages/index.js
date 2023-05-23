@@ -67,18 +67,18 @@ profileEditButton.addEventListener("click", () => {
   // confused about this one
   profileNameInput.value = profileTitle.textContent;
   profileDescriptionInput.value = profileDescription.textContent;
-  openPopup(profileEditModal);
+  openModal(profileEditModal);
 });
 
 profileEditForm.addEventListener("submit", (e) => {
   e.preventDefault();
   profileTitle.textContent = profileNameInput.value;
   profileDescription.textContent = profileDescriptionInput.value;
-  closePopup(profileEditModal);
+  closeModal(profileEditModal);
 });
 
 addNewCardButton.addEventListener("click", () => {
-  openPopup(profileAddModal);
+  openModal(profileAddModal);
 });
 
 addEditForm.addEventListener("submit", (e) => {
@@ -96,7 +96,7 @@ addEditForm.addEventListener("submit", (e) => {
 
   const cardListEl = createCard(cardData);
   cardListEl.prepend(cardElement);
-  closePopup(profileAddModal);
+  closeModal(profileAddModal);
 });
 
 const createCard = (cardData) => {
@@ -117,9 +117,11 @@ const settings = {
   formSelector: ".modal__form",
   inputSelector: ".form__input",
   submitButtonSelector: ".form__popup-button",
-  inactiveButtonClass: "popup__button_disabled",
+  inactiveButtonClass: "form__button_disabled",
   inputErrorClass: "popup__input_type_error",
 };
 const editProfileFormValidator = new FormValidator(settings, profileEditForm);
 const addCardFormValidator = new FormValidator(settings, addEditForm); // changed FormElement to addEditForm bc it had the add form id
+addCardFormValidator.enableValidation();
+editProfileFormValidator.enableValidation();
 export { cardOpenModal, modalCaptionElement, modalImageElement };

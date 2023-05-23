@@ -44,10 +44,10 @@ export default class Card {
     document.addEventListener("keydown", closeModalOnRemoteClick);
   }
   _toggleLike = () => {
-      this._cardElement.querySelector(".card__like_button");
-      this._cardElement.classList.toggle("card__like-button-active");
-    
-      console.log("card__like-button-active");
+    this._element
+    .querySelector(".card__like-button")
+    .classList.toggle("card__like-button-active");
+   
   };
 
   _handleDeleteButton = () => {
