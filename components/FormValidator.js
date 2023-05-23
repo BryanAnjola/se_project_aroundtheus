@@ -7,9 +7,9 @@ export default class FormValidator {
       settings.submitButtonSelector
     );
 
-    this._inputList = Array.from(
+  
       this._form.querySelectorAll(this._settings.inputSelector)
-    );
+    
   }
 
   enableValidation() {
@@ -17,9 +17,9 @@ export default class FormValidator {
       event.preventDefault();
     });
 
-    this._inputList = Array.from(
+    
       this._form.querySelectorAll(this._settings.inputSelector)
-    );
+    
     this._inputList.forEach((input) => {
       input.addEventListener("input", () => {
         this._checkInputValidity(input);
@@ -32,9 +32,9 @@ export default class FormValidator {
   }
 
   resetValidation() {
-    this._inputList = Array.from(
+  
       this._form.querySelectorAll(this._settings.inputSelector)
-    );
+    
     this._inputList.forEach((input) => {
       this._hideInputError(input);
     });
@@ -71,14 +71,12 @@ export default class FormValidator {
     errorElement.textContent = "";
     input.classList.remove(this._settings.inputErrorClass);
   }
+  _checkFormValidity  = () => this._inputList.every(input => input.validity.valid);
 
+  
   _toggleButtonState() {
-    this._inputList = Array.from(
-      this._form.querySelectorAll(this._settings.inputSelector)
-    );
-    const allInputsValid = this._inputList.every((input) => {
-      return input.validity.valid;
-    });
+    const allInputsValid = _checkFormValidity  = () => this._inputList.every(input => input.validity.valid);;
+      this._form.querySelectorAll(this._settings.inputSelector);
 
     if (allInputsValid) {
       this.enableSubmitButton();

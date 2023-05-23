@@ -29,31 +29,30 @@ export default class Card {
       this._handlePreviewImage(e)
     );
 
-    this._cardImageEl.addEventListener("click", (e) =>this._openModalImage()
-    );
+    this._cardImageEl.addEventListener("click", (e) => this._openModalImage());
 
     this._closeModalImage();
   }
 
   _openModalImage() {
-    this._cardElement.classList.add(".modal_opened");
-    document.addEventListener("keydown", closeModalOnRemoteClick);
+  //  this._cardElement.classList.add(".modal_opened");
+    //document.addEventListener("keydown", closeModalOnRemoteClick);
+    openModal(cardOpenModal)
   }
   _closeModalImage() {
-    this._cardElement.classList.remove(".modal_opened");
-    document.addEventListener("keydown", closeModalOnRemoteClick);
+  //  this._cardElement.classList.remove(".modal_opened");
+    //document.addEventListener("keydown", closeModalOnRemoteClick);
+closeModal(cardOpenModal)
   }
   _toggleLike = () => {
     this._element
-    .querySelector(".card__like-button")
-    .classList.toggle("card__like-button-active");
-   
+      .querySelector(".card__like-button")
+      .classList.toggle("card__like-button-active");
   };
 
   _handleDeleteButton = () => {
-   this._element.remove(".card");
-   this._element = null;
-
+    this._element.remove(".card");
+    this._element = null;
   };
 
   _handlePreviewImage(e) {

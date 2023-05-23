@@ -87,15 +87,14 @@ addEditForm.addEventListener("submit", (e) => {
   const newLink = addProfileUrl.value;
   addTitleInput.value = "";
   addProfileUrl.value = "";
-  editProfileFormValidator.disableSubmitButton();
   addCardFormValidator.disableSubmitButton();
   const cardData = {
     name: newName,
     link: newLink,
   };
 
-  const cardListEl = createCard(cardData);
-  cardListEl.prepend(cardElement);
+  const card = createCard(cardData);
+  cardListEl.prepend(card);
   closeModal(profileAddModal);
 });
 
@@ -106,7 +105,7 @@ const createCard = (cardData) => {
 
 initialCards.forEach((cardData) => {
   const card = createCard(cardData);
-  cardListEl.append(card); /// was cardElement but i changed to cardData to fix a error
+  cardListEl.append(card); /// was card but i changed to cardData to fix a error
 });
 
 profileEditModal.addEventListener("mousedown", closeModalOnRemoteClick);
