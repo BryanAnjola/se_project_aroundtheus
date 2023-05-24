@@ -6,7 +6,9 @@ export default class FormValidator {
       settings.submitButtonSelector
     );
     this._form.querySelectorAll(this._settings.inputSelector);
-    this._inputList = this._form.querySelectorAll(this._settings.inputSelector);
+    this._inputList = [
+      ...this._form.querySelectorAll(this._settings.inputSelector),
+    ];
   }
   enableValidation() {
     this._form.addEventListener("submit", (event) => {
@@ -54,7 +56,7 @@ export default class FormValidator {
     errorElement.classList.remove(this._settings.inputErrorClass);
   }
   _checkFormValidity = () => {
-    this._inputList.forEach((input) => input.validity.valid);
+    return this._inputList.every((input) => input.validity.valid);
   };
 
   _toggleButtonState() {
