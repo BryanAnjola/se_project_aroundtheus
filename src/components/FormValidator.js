@@ -5,7 +5,6 @@ export default class FormValidator {
     this._submitButton = this._form.querySelector(
       settings.submitButtonSelector
     );
-    this._form.querySelectorAll(this._settings.inputSelector);
     this._inputList = [
       ...this._form.querySelectorAll(this._settings.inputSelector),
     ];
@@ -22,7 +21,7 @@ export default class FormValidator {
         this._toggleButtonState();
       });
     });
-    this.disableSubmitButton();
+    this.resetValidation();
   }
   resetValidation() {
     this._inputList.forEach((input) => {

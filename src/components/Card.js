@@ -1,16 +1,12 @@
-import { openModal, closeModal } from "../utils/utils.js";
-import {
-  cardOpenModal,
-  modalCaptionElement,
-  modalImageElement,
-} from "../pages/index.js";
-import popup from "./popup.js";
+
+
 export default class Card {
-  constructor(cardData, templateSelector) {
+  constructor(cardData, templateSelector, handleCardClick) {
     this._cardData = cardData;
     this._link = cardData.link;
     this._name = cardData.name;
     this._templateSelector = templateSelector;
+    this._handleCardClick = handleCardClick;
   }
   _setEventListeners() {
     this._likeButton = this._cardElement.querySelector(".card__like-button");
@@ -21,30 +17,22 @@ export default class Card {
       this._handleDeleteButton()
     );
 
-    this._cardImageEl.addEventListener("click", (e) =>
-      this._handlePreviewImage(e)
+    this._cardImageEl.addEventListener("click", () =>
+      this._handleCardClick(this._cardImageEl)
     );
   }
 
   _toggleLike = () => {
-    this._element
+    this._cardElement
       .querySelector(".card__like-button")
       .classList.toggle("card__like-button-active");
   };
 
   _handleDeleteButton = () => {
-    this._element.remove();
-    this._element = null;
+    this._cardElement.remove();
+    this._cardElement = null;
   };
 
-  _handlePreviewImage() {
-    const modalImage = document.querySelector('.modal__image');
-    const textCaption = document.querySelector('.modal__text');
-    textCaption.textContent = this._name;
-    modalImage.src = this._link;
-   
-    openModal(cardOpenModal);
-  }
 
   _getTemplate() {
     return document
@@ -67,7 +55,6 @@ export default class Card {
 
     this._setEventListeners();
 
-    this._element = this._cardElement;
 
     return this._cardElement;
   }
