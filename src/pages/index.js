@@ -85,18 +85,12 @@ const imageCloseButton = cardOpenModal.querySelector("#image-close-button");
 
 const cardListEl = document.querySelector(".gallery__cards");
 
-
-
-
-
 //popup card image
 function handleCardClick(data) {
-const imagePopup = new PopupWithImage(".modal__image");
-  imagePopup.open(data);
- imagePopup.setEventListeners();
+  const popupImage = new PopupWithImage("#card-open-modal");
+  popupImage.open(data);
+  popupImage.setEventListeners();
 }
-console.log(handleCardClick)
-
 
 // render cards
 //creating card listener
@@ -104,62 +98,58 @@ console.log(handleCardClick)
 const cardSection = new Section(
   {
     items: initialCards,
-    renderer:  (item) =>{
-    const addNewCard = new Card(item, '#card-template', handleCardClick)
-    const cardElement = addNewCard.createCardElement();
-    cardSection.addItem(cardElement)
+    renderer: (item) => {
+      const addNewCard = new Card(item, "#card-template", handleCardClick);
+      const cardElement = addNewCard.createCardElement();
+      cardSection.addItem(cardElement);
     },
   },
   ".gallery__cards"
 );
 cardSection.renderItems();
 
-
 // form popup Edit profile
 
-const userInfo = new UserInfo(
-  profileTitle,
-  profileDescription,
+const userInfo = new UserInfo(profileTitle, profileDescription);
+
+const profilePopupForm = new PopupWithForm(
+  "#profile-edit-modal",
+  (inputValues) => {
+    userInfo.setUserInfo(inputValues);
+    profilePopupForm.close();
+  }
 );
-const profilePopupForm = new PopupWithForm("#profile-edit-modal", (inputValues)=>
-{
-  userInfo.setUserInfo(inputValues);
-  profilePopupForm.close();
-});
 profilePopupForm.setEventListeners();
 
-profileEditButton.addEventListener('click', () =>{
+profileEditButton.addEventListener("click", () => {
   const userData = userInfo.getUserInfo();
-
 
   profileTitle.value = userData.userName;
   profileDescription.value = userData.userTitle;
   profilePopupForm.open();
-})
-
-
-
+});
 
 // form popup Add card
- const newCardPopupWithForm = new PopupWithForm('#profile-add-modal', (inputValues) => 
- {
-  const newCardItem = new Card(
-    {
-      items: [inputValues],
-      renderer: (item) => {
-        const addNewCard = new Card(item, '#card-template' , handleCardClick);
-        const cardElement = new addNewCard.getCard();
-        cardSection.addItem(cardElement);
+const newCardPopupWithForm = new PopupWithForm(
+  "#profile-add-modal",
+  (inputValues) => {
+    const newCardItem = new Card(
+      {
+        items: [inputValues],
+        renderer: (item) => {
+          const addNewCard = new Card(item, "#card-template", handleCardClick);
+          const cardElement = new addNewCard.getCard();
+          cardSection.addItem(cardElement);
+        },
       },
-    },
-    '.gallery__cards'
-  );
-  newCardItem.renderItems();
-  newCardPopupWithForm.close();
- });
+      cardListEl
+    );
+    newCardItem.renderItems();
+    newCardPopupWithForm.close();
+  }
+);
 
-addNewCardButton.addEventListener('click', () =>
-{
+addNewCardButton.addEventListener("click", () => {
   newCardPopupWithForm.open();
 });
 newCardPopupWithForm.setEventListeners();
@@ -169,20 +159,10 @@ newCardPopupWithForm.setEventListeners();
 //   return card.createCardElement();
 // };
 
-
-
-
-
 // const editProfileForm = new popupWithForm("#profile-edit-form", () => {
 //   userInfo.setUserInfo(nameInput, titleInput);
 //   editProfileForm.openModal();
 // });
-
-
-
-
-
-
 
 // edit button event listener
 // profileEditButton.addEventListener("click", () => {
@@ -190,8 +170,6 @@ newCardPopupWithForm.setEventListeners();
 //   profileDescriptionInput.value = profileDescription.textContent;
 //   openModal(profileEditModal);
 // });
-
-
 
 //edit form listener
 // profileEditForm.addEventListener("submit", (e) => {
@@ -222,7 +200,6 @@ newCardPopupWithForm.setEventListeners();
 //   Section.prepend(card);
 //   closeModal(profileAddModal);
 // });
-
 
 const editProfileFormValidator = new FormValidator(settings, profileEditForm);
 const addCardFormValidator = new FormValidator(settings, addEditForm);
