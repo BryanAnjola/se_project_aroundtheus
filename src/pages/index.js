@@ -85,7 +85,14 @@ const imageCloseButton = cardOpenModal.querySelector("#image-close-button");
 
 const cardListEl = document.querySelector(".gallery__cards");
 
+
+
+
+const userInfo = new UserInfo(profileTitle, profileDescription);
 //popup card image
+
+
+
 function handleCardClick(data) {
   const popupImage = new PopupWithImage("#card-open-modal");
   popupImage.open(data);
@@ -109,8 +116,6 @@ const cardSection = new Section(
 cardSection.renderItems();
 
 // form popup Edit profile
-
-const userInfo = new UserInfo(profileTitle, profileDescription);
 
 const profilePopupForm = new PopupWithForm(
   "#profile-edit-modal",
@@ -153,6 +158,7 @@ addNewCardButton.addEventListener("click", () => {
   newCardPopupWithForm.open();
 });
 newCardPopupWithForm.setEventListeners();
+
 
 // const createCard = (cardData) => {
 //   const card = new Card(cardData, "#card-template", handleCardClick); //added handlecardClick here

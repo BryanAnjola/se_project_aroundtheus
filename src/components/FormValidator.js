@@ -5,24 +5,21 @@ export default class FormValidator {
     this._submitButton = this._form.querySelector(
       settings.submitButtonSelector
     );
+  }
+  _setEventListeners() {
     this._inputList = [
       ...this._form.querySelectorAll(this._settings.inputSelector),
     ];
-  }
-  enableValidation() {
-    this._form.addEventListener("submit", (event) => {
-      event.preventDefault();
-    });
 
     this._inputList.forEach((input) => {
       input.addEventListener("input", () => {
         this._checkInputValidity(input);
-
         this._toggleButtonState();
       });
     });
     this.resetValidation();
   }
+
   resetValidation() {
     this._inputList.forEach((input) => {
       this._hideInputError(input);
@@ -66,5 +63,11 @@ export default class FormValidator {
     } else {
       this.disableSubmitButton();
     }
+  }
+  enableValidation() {
+    this._form.addEventListener("submit", function (event) {
+      event.preventDefault();
+    });
+    this._setEventListeners();
   }
 }
