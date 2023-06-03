@@ -91,12 +91,15 @@ const cardListEl = document.querySelector(".gallery__cards");
 const userInfo = new UserInfo(profileTitle, profileDescription);
 //popup card image
 
-
+// function renderCard(cardData) {
+//   const cardImage = createCardElement(cardData);
+//   cardSection.addItem(cardImage);
+// }
 
 function handleCardClick(data) {
   const popupImage = new PopupWithImage("#card-open-modal");
   popupImage.open(data);
-  popupImage.setEventListeners();
+  popupImage._setEventListeners();
 }
 
 // render cards
@@ -132,6 +135,7 @@ profileEditButton.addEventListener("click", () => {
   profileTitle.value = userData.userName;
   profileDescription.value = userData.userTitle;
   profilePopupForm.open();
+  
 });
 
 // form popup Add card
@@ -144,12 +148,12 @@ const newCardPopupWithForm = new PopupWithForm(
         renderer: (item) => {
           const addNewCard = new Card(item, "#card-template", handleCardClick);
           const cardElement = new addNewCard.getCard();
-          cardSection.addItem(cardElement);
+          newCardItem.addItem(cardElement);
         },
       },
       cardListEl
     );
-    newCardItem.renderItems();
+    // newCardItem.renderItems(); -> this give me a error removing it fixes the error but does not add a new card lets it submit though
     newCardPopupWithForm.close();
   }
 );
@@ -159,53 +163,6 @@ addNewCardButton.addEventListener("click", () => {
 });
 newCardPopupWithForm.setEventListeners();
 
-
-// const createCard = (cardData) => {
-//   const card = new Card(cardData, "#card-template", handleCardClick); //added handlecardClick here
-//   return card.createCardElement();
-// };
-
-// const editProfileForm = new popupWithForm("#profile-edit-form", () => {
-//   userInfo.setUserInfo(nameInput, titleInput);
-//   editProfileForm.openModal();
-// });
-
-// edit button event listener
-// profileEditButton.addEventListener("click", () => {
-//   profileNameInput.value = profileTitle.textContent;
-//   profileDescriptionInput.value = profileDescription.textContent;
-//   openModal(profileEditModal);
-// });
-
-//edit form listener
-// profileEditForm.addEventListener("submit", (e) => {
-//   e.preventDefault();
-//   profileTitle.textContent = UserInfo; //possible add .setuserinfo or .getus
-//   profileDescription.textContent = profileDescriptionInput.value;
-//   closeModal(profileEditModal);
-// });
-
-// adding card listener
-// addNewCardButton.addEventListener("click", () => {
-//   openModal(profileAddModal);
-// });
-//adding card  form listener
-// addEditForm.addEventListener("submit", (e) => {
-//   e.preventDefault();
-//   const newName = addTitleInput.value;
-//   const newLink = addProfileUrl.value;
-//   addTitleInput.value = "";
-//   addProfileUrl.value = "";
-//   addCardFormValidator.disableSubmitButton();
-//   const cardData = {
-//     name: newName,
-//     link: newLink,
-//   };
-
-//   const card = createCard(cardData);
-//   Section.prepend(card);
-//   closeModal(profileAddModal);
-// });
 
 const editProfileFormValidator = new FormValidator(settings, profileEditForm);
 const addCardFormValidator = new FormValidator(settings, addEditForm);

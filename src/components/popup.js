@@ -22,7 +22,7 @@ export default class popup {
 
     };
     };
-    setEventListeners() {
+    _setEventListeners() {
         const modalCloseButton = this._popupElement.querySelector('.modal__close');
         modalCloseButton.addEventListener('click', () => this.close());
         this._popupElement.addEventListener('click', (event) => {
@@ -31,6 +31,4 @@ export default class popup {
     } 
 });
     }
-
-
 }
