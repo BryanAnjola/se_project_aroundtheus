@@ -23,6 +23,10 @@ import {
   modalImageElement,
   modalCaptionElement,
   initialCards,
+  profileNameInput,
+  profileDescriptionInput,
+  addTitleInput,
+  addProfileUrl,
 } from "../utils/constants.js";
 
 //validation
@@ -36,25 +40,22 @@ const userInfo = new UserInfo(profileTitle, profileDescription);
 //popup card image
 
 function renderCard(cardData) {
-  const cardImage = createCardElement(cardData);
-  cardSection.addItem(cardImage);
+  const addNewCard = new Card(cardData, "#card-template", handleCardClick);
+  const cardElement = addNewCard.createCardElement();
+  cardSection.addItem(cardElement);
 }
 
 function handleCardClick(data) {
   const popupImage = new PopupWithImage("#card-open-modal");
   popupImage.open(data);
-  popupImage._setEventListeners();
+  popupImage.setEventListeners();
 }
 
 // render cards
 const cardSection = new Section(
   {
     items: initialCards,
-    renderer: (item) => {
-      const addNewCard = new Card(item, "#card-template", handleCardClick);
-      const cardElement = addNewCard.createCardElement();
-      cardSection.addItem(cardElement);
-    },
+    renderer: renderCard,
   },
   ".gallery__cards"
 );
@@ -63,8 +64,8 @@ cardSection.renderItems();
 // form popup Edit profile
 const profilePopupForm = new PopupWithForm(
   "#profile-edit-modal",
-  (inputValues) => {
-    userInfo.setUserInfo(inputValues);
+  ([profileNameInput, profileDescriptionInput]) => {
+    userInfo.setUserInfo(profileNameInput, profileDescriptionInput);
     profilePopupForm.close();
   }
 );
@@ -72,9 +73,9 @@ profilePopupForm.setEventListeners();
 
 profileEditButton.addEventListener("click", () => {
   const userData = userInfo.getUserInfo();
-
-  profileTitle.textContent = userData.userName;
-  profileDescription.textContent = userData.userTitle;
+  userInfo.setUserInfo(userData);
+  profileTitle.value = userData.name;
+  profileDescription.value = userData.title;
   profilePopupForm.open();
 });
 
@@ -93,5 +94,3 @@ addNewCardButton.addEventListener("click", () => {
   newCardPopupWithForm.open();
 });
 newCardPopupWithForm.setEventListeners();
-
-export { cardOpenModal, modalCaptionElement, modalImageElement };
