@@ -5,19 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Around The U.S.</title>
-    <link href="./images/favicon.ico" rel="icon"  type="image/x-icon"/>
+    <link href="./images/favicon.ico" rel="icon" type="image/x-icon" />
   </head>
   <body class="page">
     <div class="header page__section">
-      <img 
-      alt="atus logo" 
-      class="header__image"
+      <img alt="atus logo" class="header__image"
       src="<%=require("./images/atus.svg")%>" />
     </div>
     <div class="profile page__section">
-      <img 
-      alt="jc" 
-      class="profile__image"
+      <img alt="jc" class="profile__image"
       src="<%=require("./images/profile__image.svg")%>" />
       <div class="profile__section-info">
         <h1 class="profile__title">Jacques Cousteau</h1>
@@ -48,7 +44,7 @@
               type="text"
               class="form__input"
               id="profile-title-input"
-              name="Name"
+              name="name"
               placeholder="Name"
               minlength="2"
               maxlength="40"
@@ -62,15 +58,16 @@
               type="text"
               class="form__input"
               id="profile-description-input"
-              name="Title"
+              name="title"
               placeholder="Description"
               minlength="2"
               maxlength="200"
               required
             />
-            <span class="form__title-error" id="profile-description-input-error"
-              ></span
-            >
+            <span
+              class="form__title-error"
+              id="profile-description-input-error"
+            ></span>
           </fieldset>
           <fieldset class="form__save form__fieldset-type-save">
             <button type="submit" class="form__button form__popup-button">
@@ -92,27 +89,23 @@
               type="text"
               class="form__input"
               id="add-title-input"
-              name="Name"
+              name="name"
               placeholder="Title"
               minlength="2"
               maxlength="30"
               required
             />
-            <span class="form__name-error" id="add-title-input-error"
-              ></span
-            >
+            <span class="form__name-error" id="add-title-input-error"></span>
             <label for="profile-description-input" class="form__label"></label>
             <input
               type="url"
               class="form__input"
               id="add-url-input"
-              name="Title"
+              name="link"
               placeholder="Image Link"
               required
             />
-            <span class="form__title-error" id="add-url-input-error"
-              ></span
-            >
+            <span class="form__title-error" id="add-url-input-error"></span>
           </fieldset>
           <fieldset class="form__save form__fieldset-type-save">
             <button type="submit" class="form__button form__popup-button">
@@ -125,7 +118,7 @@
     <!--Card open modal-->
     <div class="modal" id="card-open-modal">
       <div class="modal__content modal__content_card">
-        <img class="modal__image" src="#" alt="bar" id="popup__image"/>
+        <img class="modal__image" src="#" alt="bar" id="popup__image" />
         <button class="modal__close" id="image-close-button"></button>
         <p class="modal__text"></p>
       </div>

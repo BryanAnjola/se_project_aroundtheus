@@ -1,5 +1,3 @@
-
-
 export default class Card {
   constructor(cardData, templateSelector, handleCardClick) {
     this._cardData = cardData;
@@ -33,7 +31,6 @@ export default class Card {
     this._cardElement = null;
   };
 
-
   _getTemplate() {
     return document
       .querySelector(this._templateSelector)
@@ -54,7 +51,6 @@ export default class Card {
     this._cardImageEl.alt = this._name;
 
     this._setEventListeners();
-
 
     return this._cardElement;
   }
