@@ -30,10 +30,7 @@ import {
 } from "../utils/constants.js";
 
 //validation
-const editProfileFormValidator = new FormValidator(settings, profileEditForm);
-const addCardFormValidator = new FormValidator(settings, addEditForm);
-addCardFormValidator.enableValidation();
-editProfileFormValidator.enableValidation();
+
 ///
 
 const userInfo = new UserInfo(profileTitle, profileDescription);
@@ -64,19 +61,18 @@ cardSection.renderItems();
 // form popup Edit profile
 const profilePopupForm = new PopupWithForm(
   "#profile-edit-modal",
-  ([profileNameInput, profileDescriptionInput]) => {
-    userInfo.setUserInfo(profileNameInput, profileDescriptionInput);
+  (inputValues) => {
+    userInfo.setUserInfo(inputValues);
     profilePopupForm.close();
   }
 );
-profilePopupForm.setEventListeners();
-
 profileEditButton.addEventListener("click", () => {
-  const userData = userInfo.getUserInfo();
-  userInfo.setUserInfo(userData);
-  profileTitle.value = userData.name;
-  profileDescription.value = userData.title;
   profilePopupForm.open();
+  const userData = userInfo.getUserInfo();
+
+  // userInfo.setUserInfo(userData);
+  profileNameInput.value = userData.name;
+  profileDescriptionInput.value = userData.title;
 });
 
 // form popup Add card
@@ -94,3 +90,8 @@ addNewCardButton.addEventListener("click", () => {
   newCardPopupWithForm.open();
 });
 newCardPopupWithForm.setEventListeners();
+profilePopupForm.setEventListeners();
+const editProfileFormValidator = new FormValidator(settings, profileEditForm);
+const addCardFormValidator = new FormValidator(settings, addEditForm);
+addCardFormValidator.enableValidation();
+editProfileFormValidator.enableValidation();
