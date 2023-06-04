@@ -33,6 +33,7 @@ import {
 
 ///
 const popupImage = new PopupWithImage("#card-open-modal");
+popupImage.setEventListeners();
 const userInfo = new UserInfo(profileTitle, profileDescription);
 //popup card image
 
@@ -44,7 +45,6 @@ function renderCard(cardData) {
 
 function handleCardClick(data) {
   popupImage.open(data);
-  popupImage.setEventListeners();
 }
 
 // render cards
