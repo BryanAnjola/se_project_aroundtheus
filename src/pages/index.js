@@ -79,7 +79,7 @@ profileEditButton.addEventListener("click", () => {
 const newCardPopupWithForm = new PopupWithForm(
   "#profile-add-modal",
   (inputValues) => {
-    const addNewCard = renderCard(inputValues);
+    renderCard(inputValues);
     newCardPopupWithForm.close();
   }
 );
