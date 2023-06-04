@@ -17,7 +17,6 @@ export default class FormValidator {
         this._toggleButtonState();
       });
     });
-    this.resetValidation();
   }
 
   resetValidation() {
