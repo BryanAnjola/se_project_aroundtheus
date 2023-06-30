@@ -1,11 +1,16 @@
 import Popup from "./Popup.js";
 
-export default class PopupWithForm extends Popup {
+export default class PopupCardDeleteVerify extends Popup {
   constructor(popupSelector, handleFormSubmit) {
     super(popupSelector);
+
+    this._verifyDeleteCardButton = this._popupElement.querySelector(
+      "#modal-verify-delete-card-button"
+    );
+    this._handleFormSubmit = handleFormSubmit;
+    this._handleSubmit = this._handleSubmit.bind(this);
+
     this._popupForm = this._popupElement.querySelector(".modal__form");
-    this._handleFormSubmit = handleFormSubmit.bind(this);
-    this._modalInputs = this._popupForm.querySelectorAll(".modal__field");
     this._submitButton = this._popupForm.querySelector(".modal__button");
     this._submitButtonText = this._submitButton.textContent;
   }
@@ -18,23 +23,17 @@ export default class PopupWithForm extends Popup {
     }
   }
 
-  _getInputValues() {
-    const inputObject = {};
-    this._modalInputs.forEach((element) => {
-      inputObject[element.name] = element.value;
-    });
-    return inputObject;
+  setSubmitAction(action) {
+    this._handleFormSubmit = action;
   }
 
   setEventListeners() {
-    this._popupForm.addEventListener("submit", (evt) => {
-      evt.preventDefault();
-      this._handleFormSubmit(this._getInputValues());
-    });
     super.setEventListeners();
+
+    this._verifyDeleteCardButton.addEventListener("click", this._handleSubmit);
   }
-  close() {
-    this._popupForm.reset();
-    super.close();
+
+  _handleSubmit() {
+    this._handleFormSubmit();
   }
 }
