@@ -2,137 +2,129 @@
   display: flex;
   margin: 0 auto;
   align-items: center;
-  padding: 40px 0 0 0;
-}
-.profile__avatart-box {
-  margin: 0;
-  padding: 0;
-  position: relative;
-}
-.profile__avatar {
-  border-radius: 50%;
-  width: 120px;
-  height: 120px;
-  object-fit: cover;
-  background-position: center;
-  margin-right: 24px;
-  cursor: pointer;
-  transition: 600ms all ease;
+  padding-top: 40px;
 }
 
-.profile__avatar-edit-button {
-  width: 26px;
-  height: 26px;
-  margin: 0;
-  padding: 0;
-  position: absolute;
-  top: 47px;
-  left: 47px;
-  cursor: pointer;
-  opacity: 0;
-  border: none;
-  outline: none;
-  background: no-repeat transparent url(../images/pen.svg) center;
-  background-size: cover;
-  transition: 600ms all ease;
-}
-.profile__avatar-edit-button:hover {
-  opacity: 100%;
-}
-.profile__avatart-box:hover .profile__avatar {
-  opacity: 0.3;
-  transition: 600ms all ease;
-}
-.profile__avatart-box:hover .profile__avatar-edit-button {
-  opacity: 100%;
-  transition: 600ms all ease;
-}
 .profile__info {
   display: grid;
   grid-template-areas:
     "title button"
-    "subtitle subtitle";
+    "description description";
   grid-template-columns: minmax(auto, 373px) auto;
-  align-items: center;
-  justify-content: center;
+  gap: 7px 18px;
+  margin-left: 30px;
 }
-.profile__edit-button {
-  grid-area: button;
-  width: 24px;
-  height: 24px;
-  background: no-repeat transparent url(../images/pen.svg) center;
-  border: 1px solid #fff;
-  padding: 7px;
+
+.profile__avatar-conatainer {
+  position: relative;
+}
+
+.profile__avatar {
+  border-radius: 50%;
+  height: 120px;
+  width: 120px;
+  align-self: center;
+  transition: 0.5s ease;
+  backface-visibility: hidden;
+  opacity: 1;
+}
+
+.profile__avatar-edit {
+  background: transparent url(../images/edit-avatar-pencil.svg) center no-repeat;
+  width: 26px;
+  height: 26px;
+  border: none;
+  position: absolute;
+  top: 47px;
+  left: 47px;
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.profile__avatar-conatainer:hover .profile__avatar-edit {
   cursor: pointer;
-  margin: 0 0 0 18px;
-  transition: opacity 410ms ease;
+  opacity: 1;
 }
-.profile__edit-button:hover {
-  opacity: 0.6;
+.profile__avatar-conatainer:hover .profile__avatar {
+  opacity: 0.2;
 }
 
 .profile__title {
-  grid-area: title;
-  padding: 0;
-  margin: 0;
+  font-family: "Inter", Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: 500;
   font-size: 42px;
   line-height: 48px;
-  font-weight: 500;
-  font-family: "Inter", Arial, sans-serif;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  grid-area: title;
+  margin: 0;
   overflow: hidden;
-}
-.profile__description {
-  text-overflow: ellipsis;
   white-space: nowrap;
-  overflow: hidden;
-  font-family: "Inter", Arial, sans-serif;
-  font-size: 18px;
-  font-weight: 400;
-  line-height: 22px;
-  letter-spacing: 0em;
-  text-align: left;
-  grid-area: subtitle;
-  padding: 0 10px;
-  margin: 7px 0 0 0;
+  text-overflow: ellipsis;
 }
-.profile__add-button {
-  background: transparent url(../images/plus.svg) center no-repeat;
-  width: 150px;
-  height: 50px;
-  border: 2px solid #fff;
-  border-radius: 2px;
+
+.profile__button-edit {
+  background: transparent url(../images/pencil.svg) center no-repeat;
+  width: 24px;
+  height: 24px;
+  grid-area: button;
+  align-self: center;
+  border: 1px solid #ffffff;
+  transition: 0.5s;
+}
+
+.profile__button-edit:hover {
   cursor: pointer;
-  padding: 0;
-  margin: 0 0 0 auto;
-  transition: opacity 410ms ease;
-}
-.profile__add-button:hover {
   opacity: 0.6;
 }
 
-@media screen and (max-width: 627px) {
+.profile__description {
+  font-family: "Inter", Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  grid-area: description;
+  margin: 0;
+  max-width: 300px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.profile__button-add {
+  background: transparent url(../images/plus-sign.svg) center no-repeat;
+  width: 150px;
+  height: 50px;
+  margin-left: auto;
+  border: 2px solid #ffffff;
+  border-radius: 2px;
+  transition: 0.5s;
+}
+
+.profile__button-add:hover {
+  cursor: pointer;
+  opacity: 0.6;
+}
+
+/* 
+NOTE TO REVIEWER:
+
+The pixels are set at max 799 in order to account for the Tablet layout with the elongeted header paired with 2 columns. */
+
+@media screen and (min-width: 320px) and (max-width: 799px) {
   .profile {
-    max-width: 100%;
     flex-direction: column;
-    height: auto;
+  }
+
+  .profile__avatar {
+    margin: 0;
+    margin-bottom: 30px;
   }
 
   .profile__info {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    max-width: calc(100% - 40px);
-    margin: 26px 20px 0 20px;
-  }
-  .profile__avatar {
-    margin: 0;
-  }
-  .profile__title {
-    font-size: 22px;
-    line-height: 27px;
-    text-align: center;
+    gap: 0;
     max-width: 282px;
   }
   .profile__edit-button {
@@ -174,7 +166,44 @@
     max-width: 100%;
   }
 
-  .profile__edit-button {
-    margin: 0 0 0 10px;
+  .profile__title {
+    max-width: 196px;
+    font-size: 22px;
+    padding-left: 43px;
+    padding-right: 10px;
+  }
+
+  .profile__button-edit {
+    width: 18px;
+    height: 18px;
+    margin-right: 15px;
+  }
+
+  .profile__description {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 36px;
+    font-size: 14px;
+    line-height: 16.94px;
+  }
+
+  .profile__button-add {
+    width: 282px;
+    margin: 0;
+  }
+}
+
+@media screen and (min-width: 800px) and (max-width: 880px) {
+  .profile {
+    justify-content: space-around;
+  }
+
+  .profile__avatar {
+    margin: 0;
+  }
+
+  .profile__button-add {
+    width: 150px;
+    margin: 0;
   }
 }

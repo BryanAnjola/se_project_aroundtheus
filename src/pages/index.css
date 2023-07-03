@@ -3,7 +3,15 @@
 @import url(../blocks/page.css);
 @import url(../blocks/header.css);
 @import url(../blocks/profile.css);
+<<<<<<< HEAD
 @import url(../blocks/gallery.css);
 @import url(../blocks/card.css);
 @import url(../blocks/footer.css);
 @import url(../blocks/modal.css);
+=======
+@import url(../blocks/cards.css);
+@import url(../blocks/card.css);
+@import url(../blocks/footer.css);
+@import url(../blocks/modal.css);
+@import url(../blocks/image-popup.css);
+>>>>>>> 52b6e823411ac1e6bb54a606afec3ecf02d57cc2
