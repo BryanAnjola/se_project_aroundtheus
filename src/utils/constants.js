@@ -1,81 +1,67 @@
-const initialCards = [
-  {
-    name: "Yosemite Valley",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
-  },
-  {
-    name: "Lake Louise",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lake-louise.jpg",
-  },
-  {
-    name: "Bald Mountians",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/bald-mountains.jpg",
-  },
-  {
-    name: "Latemar",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/latemar.jpg",
-  },
-  {
-    name: "Vanoise National Park",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/vanoise.jpg",
-  },
-  {
-    name: "Lago di Braies",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lago.jpg",
-  },
-];
+// Buttons
+export const profileEditButton = document.querySelector("#profile-edit-button");
+export const cardAddButton = document.querySelector("#profile-add-button");
 
-//general Elements
+// others
+export const profileModalSelector = "#profile-modal";
+export const cardModalSelector = "#card-modal";
+export const imageModalSelector = "#image-modal";
+export const userNameSelector = "#profile-title";
+export const userDescriptionSelector = "#profile-description";
+export const modalNameInputSelector = "#modal-name";
+export const avatarSelector = ".profile__avatar";
+export const modalDescriptionInputSelector = "#modal-description";
+export const cardListSelector = ".gallery__cards";
+export const cardDeleteModalSelector = "#card-delete-modal";
+export const modalChangeProfileSelector = "#change-profile-modal";
 
+// Modals
+const profileModal = document.querySelector(profileModalSelector);
+const cardModal = document.querySelector(cardModalSelector);
+const imageModal = document.querySelector(imageModalSelector);
+const changeProfileModal = document.querySelector(modalChangeProfileSelector);
+const modalImageElement = document.querySelector(".modal__image");
+const modalCaptionElement = document.querySelector(".modal__caption");
+
+export const closeModalButton = document.querySelector("#modal-close");
+export const closeCardModalButton =
+  cardModal.querySelector("#card-modal-close");
+export const closeImageModalButton =
+  imageModal.querySelector("#image-modal-close");
+export const profileTitle = document.querySelector(userNameSelector);
+export const profileDescription = document.querySelector(
+  userDescriptionSelector
+);
+export const newCardTitle = cardModal.querySelector("#modal-title-input");
+export const newCardUrl = cardModal.querySelector("#modal-url-input");
+export const modalNameInput = document.querySelector(modalNameInputSelector);
+export const modalDescriptionInput = document.querySelector(
+  modalDescriptionInputSelector
+);
+export const modalSubmitButton = document.querySelector("#modal-submit-button");
+export const cardModalSubmitButton = document.querySelector(
+  "#card-modal-submit-button"
+);
+export const editButtonAvatart = document.querySelector(
+  ".profile__avatar-edit-button"
+);
+export const changeProfileModalSubmitButton = document.querySelector(
+  "#chnage-profile-modal-submit-button"
+);
+export const cardListElement = document.querySelector(cardListSelector);
 export const cardTemplate =
   document.querySelector("#card-template").content.firstElementChild;
+// forms
+export const modalProfileForm = profileModal.querySelector(".modal__form");
+export const modalCardForm = cardModal.querySelector(".modal__form");
+export const modalChangeProfileForm =
+  changeProfileModal.querySelector(".modal__form");
 
-//profile elements
-
-export const profileEditButton = document.querySelector("#profile-edit-button");
-export const profileEditModal = document.querySelector("#profile-edit-modal");
-export const profileCloseButton = document.querySelector(
-  "#profile-close-button"
-);
-export const profileTitle = document.querySelector(".profile__title");
-export const profileDescription = document.querySelector(
-  ".profile__description"
-);
-export const profileNameInput = document.querySelector("#profile-title-input");
-export const profileDescriptionInput = document.querySelector(
-  "#profile-description-input"
-);
-export const profileAddModal = document.querySelector("#profile-add-modal");
-export const profileEditForm =
-  profileEditModal.querySelector("#profile-edit-form");
-
-//add card elements
-
-export const addCloseButton = document.querySelector("#add-close-button");
-export const addTitleInput = document.querySelector("#add-title-input");
-export const addProfileUrl = document.querySelector("#add-url-input");
-export const addNewCardButton = document.querySelector(".profile__add-button");
-export const addEditForm = profileAddModal.querySelector("#add-edit-form");
-export const cardOpenModal = document.querySelector("#card-open-modal");
-
-export const addCardSubmitButton = profileAddModal.querySelector(
-  ".form__popup-button"
-);
-
-export const settings = {
+export const validationSettings = {
   formSelector: ".modal__form",
-  inputSelector: ".form__input",
-  submitButtonSelector: ".form__popup-button",
-  inactiveButtonClass: "form__button_disabled",
-  inputErrorClass: "popup__input_type_error",
+  inputSelector: ".modal__input",
+  submitButtonSelector: ".modal__button",
+  inactiveButtonClass: "modal__button_disabled",
+  inputErrorClass: "modal__button_type_error",
+  errorClass: "modal__error_visible",
 };
-//image modal elements\
-
-export const modalImageElement = document.querySelector(".modal__image");
-export const modalCaptionElement = document.querySelector(".modal__text");
-export const imageCloseButton = cardOpenModal.querySelector(
-  "#image-close-button"
-);
-export const cardListEl = document.querySelector(".gallery__cards");
-
-export { initialCards };

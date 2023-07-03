@@ -1,25 +1,17 @@
-export function closeModal(modal) {
+const closeModal = (modal) => {
   modal.classList.remove("modal_opened");
-  document.removeEventListener("keydown", handleEscapePress);
-}
+  document.removeEventListener("keydown", closeByEscape);
+};
 
-export function openModal(modal) {
+const openModal = (modal) => {
   modal.classList.add("modal_opened");
-  document.addEventListener("keydown", handleEscapePress);
-}
-
-function handleEscapePress(e) {
-  if (e.key == "Escape") {
-    const popup = document.querySelector(".modal_opened");
-    closeModal(modal);
+  document.addEventListener("keydown", closeByEscape);
+};
+const closeByEscape = (evt) => {
+  if (evt.key === "Escape") {
+    const openedModal = document.querySelector(".modal_opened"); // find the opened popup
+    closeModal(openedModal);
   }
-}
+};
 
-export function closeModalOnRemoteClick(evt) {
-  if (
-    evt.target === evt.currentTarget ||
-    evt.target.classList.contains("modal__close")
-  ) {
-    closeModal(evt.currentTarget);
-  }
-}
+export { closeModal, openModal, closeByEscape };
