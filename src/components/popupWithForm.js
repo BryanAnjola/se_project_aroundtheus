@@ -1,40 +1,51 @@
-import Popup from "./Popup.js";
-
+import Popup from './Popup';
 export default class PopupWithForm extends Popup {
-  constructor(popupSelector, handleFormSubmit) {
-    super(popupSelector);
-    this._popupForm = this._popupElement.querySelector(".modal__form");
-    this._handleFormSubmit = handleFormSubmit.bind(this);
-    this._modalInputs = this._popupForm.querySelectorAll(".modal__field");
-    this._submitButton = this._popupForm.querySelector(".modal__button");
-    this._submitButtonText = this._submitButton.textContent;
-  }
-
-  renderLoading(isLoading, loadingText = "Saving...") {
-    if (isLoading) {
-      this._submitButton.textContent = loadingText;
-    } else {
-      this._submitButton.textContent = this._submitButtonText;
+    constructor({ popupSelector, handleFormSubmit, loadingText }) {
+        super({ popupSelector });
+        this._popupForm = this._popupElement.querySelector('.modal__form');
+        this._inputList = this._popupElement.querySelectorAll('.modal__input');
+        this._handleFormSubmit = handleFormSubmit;
+        this._submitButton = this._popupForm.querySelector(".modal__button[type='submit']");
+        this._submitButtonText = this._submitButton.textContent;
+        this._loadingText = loadingText;
     }
-  }
 
-  _getInputValues() {
-    const inputObject = {};
-    this._modalInputs.forEach((element) => {
-      inputObject[element.name] = element.value;
-    });
-    return inputObject;
-  }
+    setInputValues(data) {
+        this._inputList.forEach((input) => {
+            // here you insert the `value` by the `name` of the input
+            input.value = data[input.name];
+        });
+    }
 
-  setEventListeners() {
-    this._popupForm.addEventListener("submit", (evt) => {
-      evt.preventDefault();
-      this._handleFormSubmit(this._getInputValues());
-    });
-    super.setEventListeners();
-  }
-  close() {
-    this._popupForm.reset();
-    super.close();
-  }
+    close() {
+        this._popupForm.reset();
+        super.close();
+    }
+    _getInputValues() {
+        this._newData = {};
+        this._inputList.forEach((inputElement) => {
+            this._newData[inputElement.name] = inputElement.value;
+        });
+        return this._newData;
+    }
+    setSubmitAction(action) {
+        this._handleFormSubmit = action;
+    }
+    renderLoading(isLoading) {
+        if (isLoading) {
+            this._submitButton.textContent = this._loadingText;
+        } else {
+            this._submitButton.textContent = this._submitButtonText;
+        }
+    }
+
+    setEventListeners() {
+        super.setEventListeners();
+        this._popupForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+            this._handleFormSubmit(this._getInputValues());
+        });
+
+        super.setEventListeners();
+    }
 }
