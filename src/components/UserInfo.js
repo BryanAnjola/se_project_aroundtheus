@@ -1,18 +1,25 @@
 export default class UserInfo {
-  constructor(nameSelector, titleSelector) {
-    this._userName = nameSelector;
-    this._userTitle = titleSelector;
+  constructor({ userNameSelector, userDescriptionSelector, avatarSelector }) {
+    this._userNameElement = document.querySelector(userNameSelector);
+    this._userDescriptionElement = document.querySelector(
+      userDescriptionSelector
+    );
+    this._profileAvatarElement = document.querySelector(avatarSelector);
   }
 
   getUserInfo() {
     return {
-      name: this._userName.textContent,
-      title: this._userTitle.textContent,
+      userName: this._userNameElement.textContent,
+      userDescription: this._userDescriptionElement.textContent,
     };
   }
 
-  setUserInfo({ name, title }) {
-    this._userName.textContent = name;
-    this._userTitle.textContent = title; //does it want this exact function the user info on index.js
+  setUserInfo({ title, description }) {
+    this._userNameElement.textContent = title;
+    this._userDescriptionElement.textContent = description;
+    this.setAvatartInfo(this._avatar);
+  }
+  setAvatartInfo(avatar) {
+    this._profileAvatarElement.src = avatar;
   }
 }
