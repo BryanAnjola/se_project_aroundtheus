@@ -11,7 +11,7 @@ export default class PopupCardDeleteVerify extends Popup {
     this._handleSubmit = this._handleSubmit.bind(this);
 
     this._popupForm = this._popupElement.querySelector(".modal__form");
-    this._submitButton = this._popupForm.querySelector(".modal__button");
+    this._submitButton = this._popupForm.querySelector(".form__button");
     this._submitButtonText = this._submitButton.textContent;
   }
 
