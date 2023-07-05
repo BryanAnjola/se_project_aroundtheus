@@ -173,7 +173,7 @@ function createCard(cardData) {
       handleImageClick: (data) => {
         modalWithImage.open(data);
       },
-      handleDeleteClick: () => {
+      deleteCard: () => {
         confirmModal.open();
         confirmModal.setSubmitAction(() => {
           confirmModal.renderLoading(true);
