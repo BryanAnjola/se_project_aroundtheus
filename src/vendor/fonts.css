@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @font-face {
   font-family: "Inter";
   font-style: normal;
@@ -24,3 +25,31 @@
   src: url(./fonts/Inter-Black.woff2) format("woff2"),
     url(./fonts/Inter-Black.woff) format("woff");
 }
+=======
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(./fonts/Inter-Regular.woff2) format("woff2"),
+    url(./fonts/Inter-Regular.woff) format("woff");
+}
+
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(./fonts/Inter-Medium.woff2) format("woff2"),
+    url(./fonts/Inter-Medium.woff) format("woff");
+}
+
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url(./fonts/Inter-Black.woff2) format("woff2"),
+    url(./fonts/Inter-Black.woff) format("woff");
+}
+>>>>>>> 6f2fe96e1a18dd86aa7d18e50812e026e88d91b6
