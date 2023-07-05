@@ -29,7 +29,7 @@ import {
 } from "../utils/constants.js";
 import PopupWithImage from "../components/PopupWithImage.js";
 import FormValidator from "../components/FormValidator.js";
-import Api from "../utils/API.js";
+import Api from "../components/API.js";
 const api = new Api({
   baseUrl: "https://around.nomoreparties.co/v1/group-12",
   headers: {
