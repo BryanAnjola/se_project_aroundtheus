@@ -1,6 +1,7 @@
 export default class Api {
   constructor({ baseUrl, headers }) {
-    (this._baseUrl = baseUrl), (this._headers = headers);
+    this._baseUrl = baseUrl;
+    this._headers = headers;
   }
   getAppInfo() {
     return Promise.all([this.getUserInfo(), this.getInitialCards()]);

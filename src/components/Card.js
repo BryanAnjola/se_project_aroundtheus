@@ -33,7 +33,10 @@ export default class Card {
   isLiked() {
     return this._likes.some((like) => like._id === this._myId);
   }
-
+  setLikes(likes) {
+    this._likes = likes;
+    this._updateLikes();
+  }
   _updateLikes() {
     this._likesAmount.textContent = this._likes.length;
     if (this.isLiked()) {
@@ -48,7 +51,7 @@ export default class Card {
     }
   }
 
-  handleDeleteIcon() {
+  deleteCard() {
     this._element.remove();
     this._element = null;
   }

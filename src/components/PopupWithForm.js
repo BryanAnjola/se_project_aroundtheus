@@ -29,9 +29,6 @@ export default class PopupWithForm extends Popup {
     });
     return this._newData;
   }
-  setSubmitAction(action) {
-    this._handleFormSubmit = action;
-  }
   renderLoading(isLoading) {
     if (isLoading) {
       this._submitButton.textContent = this._loadingText;
@@ -39,7 +36,9 @@ export default class PopupWithForm extends Popup {
       this._submitButton.textContent = this._submitButtonText;
     }
   }
-
+  setSubmitAction(action) {
+    this._handleFormSubmit = action;
+  }
   setEventListeners() {
     super.setEventListeners();
     this._popupForm.addEventListener("submit", (event) => {
