@@ -30,6 +30,7 @@ import {
 import PopupWithImage from "../components/PopupWithImage.js";
 import FormValidator from "../components/FormValidator.js";
 import Api from "../utils/API.js";
+import PopupWithConfirmation from "../components/PopupWithConfirmation.js";
 const api = new Api({
   baseUrl: "https://around.nomoreparties.co/v1/group-12",
   headers: {
@@ -119,7 +120,6 @@ const modalWithFormUser = new PopupWithForm({
           title: data.name,
           description: data.about,
         });
-        userInfo.setAvatartInfo(data.avatar);
         modalWithFormUser.close();
       })
       .catch(console.error)
@@ -130,7 +130,7 @@ const modalWithFormUser = new PopupWithForm({
   loadingText: "Saving...",
 });
 
-const confirmModal = new PopupWithForm({
+const confirmModal = new PopupWithConfirmation({
   popupSelector: cardDeleteModalSelector,
   loadingText: "Deleting...",
 });

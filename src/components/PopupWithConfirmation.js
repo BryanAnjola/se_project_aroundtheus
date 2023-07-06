@@ -3,15 +3,10 @@ import Popup from "./Popup.js";
 export default class PopupWithConfirmation extends Popup {
   constructor(popupSelector, handleFormSubmit) {
     super(popupSelector);
-
-    this._verifyDeleteCardButton = this._popupElement.querySelector(
-      "#modal-verify-delete-card-button"
-    );
     this._handleFormSubmit = handleFormSubmit;
     this._handleSubmit = this._handleSubmit.bind(this);
-
     this._popupForm = this._popupElement.querySelector(".modal__form");
-    this._submitButton = this._popupForm.querySelector(".form__button");
+    this._submitButton = this._popupForm.querySelector(".modal__button");
     this._submitButtonText = this._submitButton.textContent;
   }
 
@@ -28,8 +23,7 @@ export default class PopupWithConfirmation extends Popup {
   }
   setEventListeners() {
     super.setEventListeners();
-
-    this._verifyDeleteCardButton.addEventListener("click", this._handleSubmit);
+    this._submitButton.addEventListener("click", this._handleSubmit);
   }
 
   _handleSubmit() {

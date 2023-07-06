@@ -147,6 +147,7 @@
   background-color: #fff;
   color: grey;
   border: 1px solid grey;
+  cursor: default;
 }
 .modal__button_disabled:hover {
   background-color: #fff;
